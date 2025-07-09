@@ -18,7 +18,7 @@
 - point　所持ポイント
 - Rest　休み状態
 - playerImage　プレイヤーの見た目
-### メソッド:move(int), MasuEffect(Masu m), draw()
+### メソッド:move(int), MasuEffect(Masu), draw()
 - move(int)　指定の数移動
 - MasuEffect(Masu)　止まったマスのイベントを開始
 - draw()　プレイヤーをマス上に表示
@@ -28,23 +28,23 @@
 - index　マス番号
 - type　マスのタイプ(イベント)
 - position　画面上の座標
-### メソッド:draw(), trigger(Player p)
+### メソッド:draw(), event()
 - draw()　マスの見た目を表示
 - event()　プレイヤーが止まった時のイベント処理
 
-##Class:Roulette
-###属性:currenVlue
--currenVlue　出目
-###メソッド:spin(),draw()
--spin()　出目をランダムで決める
--draw()　出目を表示
+## Class:Roulette
+### 属性:currenVlue
+- currenVlue　出目
+### メソッド:spin(),draw()
+- spin()　出目をランダムで決める
+- draw()　出目を表示
 
-##Class:Point
-###属性:value
--value　現在のポイント数
-###メソッド:add(int), subtract(int), getValue()
--add(int)　ポイントを増加
--subtract(int)　ポイントを減少
--getValue()　現在のポイントを取得
+## Class:Point
+### 属性:value
+- value　現在のポイント数
+### メソッド:add(int), subtract(int), getValue()
+- add(int)　ポイントを増加
+- subtract(int)　ポイントを減少
+- getValue()　現在のポイントを取得
 
 
