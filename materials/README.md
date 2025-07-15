@@ -1,5 +1,5 @@
 # すごろくゲーム設計ドキュメント
-## Class:Game　柴田
+## Class:Game　担当：柴田
 ### 属性:players[], masus[], roulette, turnCount, logs, goalCount
 - masus　60マス
 - roulette　ランダムな1～6
@@ -16,7 +16,7 @@
 - Result() 結果の反映
 - checkGoal() ゴールの判定
 
-## Class:player
+## Class:player 担当：生田
 ### 属性:name, position, point, Rest, characterImage
 - name　プレイヤーの名前
 - position　現在のマス
@@ -28,7 +28,7 @@
 - MasuEffect(Masu)　止まったマスのイベントを開始
 - draw()　プレイヤーをマス上に表示
 
-## Class:Masu
+## Class:Masu　担当：生田
 ### 属性:index, type, description, position, color
 - index　マス番号
 - type　マスのタイプ(イベント)
@@ -37,14 +37,14 @@
 - draw()　マスの見た目を表示
 - event()　プレイヤーが止まった時のイベント処理
 
-## Class:Roulette
+## Class:Roulette　担当：石田
 ### 属性:currenVlue
 - currenVlue　出目
 ### メソッド:spin(),draw()
 - spin()　出目をランダムで決める
 - draw()　出目を表示
 
-## Class:Point
+## Class:Point　担当：石田
 ### 属性:value
 - value　現在のポイント数
 ### メソッド:add(int), subtract(int), getValue()
