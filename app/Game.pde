@@ -66,15 +66,15 @@ class Game {
     noLoop();
   }
   
-  void checkGoal(Player player) {
-    if (player.position >= masus.length - 1) {
-      logs.add(player.name + " reached the goal!");
+  void checkGoal(Player p) {
+    if (p.position >= masus.length - 1) {
+      logs.add(p.name + " reached the goal!");
       if (goalCount == 0) {
-        player.point.add(100);
-        logs.add(player.name + " gets +100 points for finishing first!");
+        p.point.add(100);
+        logs.add(p.name + " gets +100 points for finishing first!");
       } else if (goalCount == 1) {
-        player.point.add(50);
-        logs.add(player.name + " gets +50 points for finishing second!");
+        p.point.add(50);
+        logs.add(p.name + " gets +50 points for finishing second!");
       }
       goalCount++;
 
