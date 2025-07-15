@@ -1,15 +1,20 @@
 # すごろくゲーム設計ドキュメント
-## Class:Game
-### 属性:players[], masus[], roulette, turnCount, logs
+## Class:Game　柴田
+### 属性:players[], masus[], roulette, turnCount, logs, goalCount
 - masus　60マス
 - roulette　ランダムな1～6
 - turnCount　現在のターン数
 - logs　履歴を記録する
-### メソッド:startGame(), nextTurn(), update(), drawUI()
+- player 3人のplayer
+- goalCount ゴールした人数
+### メソッド:startGame(), nextTurn(), update(), drawUI(), endTrun(), Result(), checkGoal()
 - startGame()　ゲームの初期化
 - nextTurn()　次のターンに進む処理
 - update()　状態を更新
 - drawUI()　ターンやログを表示する
+- endTrun() ターンの終了
+- Result() 結果の反映
+- checkGoal() ゴールの判定
 
 ## Class:player
 ### 属性:name, position, point, Rest, characterImage
