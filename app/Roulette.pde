@@ -4,11 +4,11 @@ class Roulette {
   boolean spinning = false;
   float spinTimer = 0;      
   int finalValue = 1;       
-  float deceleration = 0.05;
+  float deceleration = 0.2;//サイコロの減速速度
 
   void startSpin() {
     spinning = true;
-    spinSpeed = 0.2; 
+    spinSpeed = 1.5; //サイコロ初期スピード
     spinTimer = 0;
     finalValue = int(random(1, 7));
   }
