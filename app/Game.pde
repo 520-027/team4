@@ -86,6 +86,8 @@ class Game {
   }
 
   void drawUI() {
+    fill(255, 220);
+    rect(width - 795, 10, 180, 100);
     fill(0);
     textSize(16);
     text("Turn: " + turnCount, width - 150, 30);
@@ -97,6 +99,8 @@ class Game {
       y += 20; 
     }
     int logY = height - 100;
+    fill(255, 220);
+    rect(width - 795, 475, 790, 120);
     for (int i = max(0, logs.size() - 5); i < logs.size(); i++) {
       fill(255, 0, 0); 
       textAlign(LEFT, BASELINE);
