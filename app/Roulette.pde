@@ -4,7 +4,7 @@ class Roulette {
   boolean spinning = false;
   float spinTimer = 0;      
   int finalValue = 1;       
-  float deceleration = 0.05;
+  float acceleration = 0.05;
 
   void startSpin() {
     spinning = true;
@@ -22,7 +22,7 @@ class Roulette {
       if (currentValue > 6) currentValue = 1;
       spinTimer = 0;
 
-      spinSpeed += deceleration;
+      spinSpeed += acceleration;
 
       if (spinSpeed > 5) {
         spinning = false;
