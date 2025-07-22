@@ -18,8 +18,8 @@ class Player {
     if (position < 0) {
       position = 0;
     }
-    if (position >= masus.length) {
-      position = masus.length - 1;
+    if (position >= 60) {
+      position = 59;
     }
   }
 
