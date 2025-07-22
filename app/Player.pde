@@ -16,7 +16,7 @@ class Player {
   void move(int steps) {
     position += steps;
     if (position < 0) {
-      positin = 0;
+      position = 0;
     }
   }
 
