@@ -26,10 +26,15 @@ class Game {
 
   void nextTurn() {
     Player p = players[currentPlayer];
+    if (p.position >= masus.length - 1) {
+      endTurn();
+      return;
+    }
     if (p.rest > 0) {
       logs.add(p.name + " is resting this turn.");
       p.rest--;
       endTurn();
+      return;
     } else {
       state = GameState.SPINNING;
       roulette.startSpin();
@@ -56,7 +61,13 @@ class Game {
   }
 
   void endTurn() {
-    currentPlayer = (currentPlayer + 1) % players.length;
+    if (goalCount >= players.length) {
+      showResult();
+      return;
+    }
+    do {
+      currentPlayer = (currentPlayer + 1) % players.length;
+    } while (players[currentPlayer].position >= masus.length - 1);
     turnCount++;
     state = GameState.WAITING;
   }
