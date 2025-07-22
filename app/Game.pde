@@ -8,6 +8,7 @@ class Game {
   ArrayList<String> logs = new ArrayList<String>();
   int currentPlayer = 0;
   boolean turnFinished = true;
+  boolean gameEnded = false;
   int goalCount = 0; 
  
   GameState state = GameState.WAITING;
@@ -58,6 +59,9 @@ class Game {
         endTurn();
       }
     }
+    if (gameEnded) {
+      noLoop();
+    }
   }
 
   void endTurn() {
@@ -73,8 +77,11 @@ class Game {
   }
 
   void showResult() {
+    if (gameEnded) {
+      return;
+    }
     logs.add("Thanks for playing.");
-    noLoop();
+    gameEnded = true;
   }
   
   void checkGoal(Player p) {
