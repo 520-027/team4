@@ -15,6 +15,12 @@ class Player {
 
   void move(int steps) {
     position += steps;
+    if (position < 0) {
+      position = 0;
+    }
+    if (position >= 60) {
+      position = 59;
+    }
   }
 
   void drawRelative(int relativeIndex) {

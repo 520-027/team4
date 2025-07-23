@@ -8,6 +8,7 @@ class Game {
   ArrayList<String> logs = new ArrayList<String>();
   int currentPlayer = 0;
   boolean turnFinished = true;
+  boolean gameEnded = false;
   int goalCount = 0; 
  
   GameState state = GameState.WAITING;
@@ -26,10 +27,15 @@ class Game {
 
   void nextTurn() {
     Player p = players[currentPlayer];
+    if (p.position >= masus.length - 1) {
+      endTurn();
+      return;
+    }
     if (p.rest > 0) {
       logs.add(p.name + " is resting this turn.");
       p.rest--;
       endTurn();
+      return;
     } else {
       state = GameState.SPINNING;
       roulette.startSpin();
@@ -47,23 +53,35 @@ class Game {
         if (p.position >= masus.length) {
           p.position = masus.length - 1;
         }
-        masus[p.position].trigger(p);
+        masus[p.position].event(p);
         logs.add(p.name + " rolled a " + steps + " and landed on " + masus[p.position].description);
         checkGoal(p);
         endTurn();
       }
     }
+    if (gameEnded) {
+      noLoop();
+    }
   }
 
   void endTurn() {
-    currentPlayer = (currentPlayer + 1) % players.length;
+    if (goalCount >= players.length) {
+      showResult();
+      return;
+    }
+    do {
+      currentPlayer = (currentPlayer + 1) % players.length;
+    } while (players[currentPlayer].position >= masus.length - 1);
     turnCount++;
     state = GameState.WAITING;
   }
 
   void showResult() {
+    if (gameEnded) {
+      return;
+    }
     logs.add("Thanks for playing.");
-    noLoop();
+    gameEnded = true;
   }
   
   void checkGoal(Player p) {
@@ -86,6 +104,8 @@ class Game {
   }
 
   void drawUI() {
+    fill(255, 220);
+    rect(width - 795, 10, 180, 100);
     fill(0);
     textSize(16);
     text("Turn: " + turnCount, width - 150, 30);
@@ -97,6 +117,8 @@ class Game {
       y += 20; 
     }
     int logY = height - 100;
+    fill(255, 220);
+    rect(width - 795, 475, 790, 120);
     for (int i = max(0, logs.size() - 5); i < logs.size(); i++) {
       fill(255, 0, 0); 
       textAlign(LEFT, BASELINE);

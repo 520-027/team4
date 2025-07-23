@@ -12,6 +12,12 @@ class Masu {
     blueMasu = b;
     redMasu = r;
     greenMasu = g;
+    if (i == 59) {
+      type = "white";
+      description = "Goal";
+      masuImage = whiteMasu;
+      return;
+    }
     int rNum = int(random(100));
     if (rNum < 50) {
       type = "white";

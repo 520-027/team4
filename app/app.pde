@@ -43,9 +43,8 @@ void draw() {
     }
   }
   
-  game.drawUI();
-  
   game.update();
+  game.drawUI();
 }
 
 void keyPressed() {
