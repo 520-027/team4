@@ -53,8 +53,9 @@ class Game {
         if (p.position >= masus.length) {
           p.position = masus.length - 1;
         }
+        int beforeMasu = p.position;
         masus[p.position].event(p);
-        logs.add(p.name + " rolled a " + steps + " and landed on " + masus[p.position].description);
+        logs.add(p.name + " rolled a " + steps + " and landed on " + masus[beforeMasu].description);
         checkGoal(p);
         endTurn();
       }
