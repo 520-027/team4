@@ -1,7 +1,7 @@
 Game game;
 PImage bg;
 int masuScreen = 10;
-PImage whiteMasu, blueMasu, redMasu, greenMasu;
+PImage whiteMasu, blueMasu, redMasu, greenMasu, goalMasu;
 PImage[] playerImages = new PImage[3];
 
 void setup() {
@@ -11,13 +11,14 @@ void setup() {
   blueMasu = loadImage("space.png");
   redMasu = loadImage("akamasu.png");
   greenMasu = loadImage("midorimasu.png");
+  goalMasu = loadImage("goal.png");
   
   playerImages[0] = loadImage("armor.png");
   playerImages[1] = loadImage("village.png");
   playerImages[2] = loadImage("mahotsukai.png");
 
   game = new Game();
-  game.startGame(playerImages, whiteMasu, blueMasu, redMasu, greenMasu);
+  game.startGame(playerImages, whiteMasu, blueMasu, redMasu, greenMasu, goalMasu);
 
 }
 
