@@ -4,9 +4,9 @@ class Masu {
   String description;
   PImage masuImage;
 
- PImage whiteMasu, blueMasu, redMasu, greenMasu;
+ PImage whiteMasu, blueMasu, redMasu, greenMasu, goalMasu;
 
-  Masu(int i, PImage w, PImage b, PImage r, PImage g) {
+  Masu(int i, PImage w, PImage b, PImage r, PImage g, PImage go) {
     index = i;
     whiteMasu = w;
     blueMasu = b;
@@ -15,7 +15,7 @@ class Masu {
     if (i == 59) {
       type = "white";
       description = "Goal";
-      masuImage = whiteMasu;
+      masuImage = go;
       return;
     }
     int rNum = int(random(100));
