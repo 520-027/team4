@@ -13,13 +13,13 @@ class Game {
  
   GameState state = GameState.WAITING;
 
-  void startGame(PImage[] playerImgs, PImage white, PImage blue, PImage red, PImage green) {
+  void startGame(PImage[] playerImgs, PImage white, PImage blue, PImage red, PImage green, PImage goal) {
     for (int i = 0; i < 3; i++) {
       players[i] = new Player("Player " + (i+1), i, playerImgs);
     }
 
     for (int i = 0; i < masus.length; i++) {
-      masus[i] = new Masu(i, white, blue, red, green);
+      masus[i] = new Masu(i, white, blue, red, green, goal);
     }
 
     logs.add("Game start");
