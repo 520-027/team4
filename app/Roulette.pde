@@ -4,7 +4,7 @@ class Roulette {
   boolean spinning = false;
   float spinTimer = 0;      
   int finalValue = 1;       
-  float deceleration = 0.2;//サイコロの減速速度
+  float acceleration = 0.2;//サイコロの加速速度
 
   void startSpin() {
     spinning = true;
