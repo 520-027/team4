@@ -26,7 +26,7 @@
 ---
 
 ## 操作方法
-1．Processingでapp.pdeを開いた状態で「▶」を押す．<br>
+1．Processing で app.pde を開いた状態で「▶」を押す．<br>
 ![alt text](images/image-1.png)<br><br>
 
 「▶」を押すと，次のような画面が表示される．<br>
