@@ -1,0 +1,51 @@
+class Masu {
+  int index;
+  String description;
+  PImage white, blue, red, green;
+
+  Masu(int index, PImage white, PImage blue, PImage red, PImage green) {
+    this.index = index;
+    this.white = white;
+    this.blue = blue;
+    this.red = red;
+    this.green = green;
+    description = getDescription();
+  }
+
+  String getDescription() {
+    if (index == 59) return "Goal!";
+    else if (index % 10 == 0) return "Green (Bonus)";
+    else if (index % 5 == 0) return "Red (Rest)";
+    else if (index % 2 == 0) return "Blue (Point)";
+    else return "White (Normal)";
+  }
+
+  void draw(int localIndex) {
+    int x = 80 * localIndex + 30;
+    int y = 300;
+    if (index == 59) {
+      image(green, x, y, 50, 50);
+    } else if (index % 10 == 0) {
+      image(green, x, y, 50, 50);
+    } else if (index % 5 == 0) {
+      image(red, x, y, 50, 50);
+    } else if (index % 2 == 0) {
+      image(blue, x, y, 50, 50);
+    } else {
+      image(white, x, y, 50, 50);
+    }
+  }
+
+  void trigger(Player p) {
+    if (index == 59) {
+      // Goalマス、何もしない（Gameクラスが処理）
+    } else if (index % 10 == 0) {
+      p.point.add(30);
+    } else if (index % 5 == 0) {
+      p.rest = 1;
+    } else if (index % 2 == 0) {
+      p.point.add(10);
+    }
+    // 白マスは効果なし
+  }
+}

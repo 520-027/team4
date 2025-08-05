@@ -1,0 +1,11 @@
+class Point {
+  int value = 0;
+
+  void add(int v) {
+    value += v;
+  }
+
+  int get() {
+    return value;
+  }
+}

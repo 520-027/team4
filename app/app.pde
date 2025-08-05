@@ -12,26 +12,26 @@ void setup() {
   redMasu = loadImage("akamasu.png");
   greenMasu = loadImage("midorimasu.png");
   goalMasu = loadImage("goal.png");
-  
+
   playerImages[0] = loadImage("armor.png");
   playerImages[1] = loadImage("village.png");
   playerImages[2] = loadImage("mahotsukai.png");
 
   game = new Game();
   game.startGame(playerImages, whiteMasu, blueMasu, redMasu, greenMasu, goalMasu);
-
 }
 
 void draw() {
   background(255);
-
   Player currentP = game.players[game.currentPlayer];
-  int currentScreen = currentP.position / masuScreen;
+  int currentScreen = (game.state == GameState.SHOW_RESULT && game.scrollTargetPosition != -1)
+                    ? game.scrollTargetPosition / masuScreen
+                    : currentP.position / masuScreen;
 
   int bgWidth = bg.width;
   int bgCount = 7;
   for (int i = -1; i <= bgCount; i++) {
-  image(bg, (i - currentScreen) * bgWidth, 0);
+    image(bg, (i - currentScreen) * bgWidth, 0);
   }
 
   for (int i = currentScreen * masuScreen; i < (currentScreen + 1) * masuScreen && i < game.masus.length; i++) {
@@ -43,7 +43,16 @@ void draw() {
       p.drawRelative(p.position - currentScreen * masuScreen);
     }
   }
-  
+
+  for (int i = game.fireworks.size() - 1; i >= 0; i--) {
+    Firework f = game.fireworks.get(i);
+    f.update();
+    f.display();
+    if (f.isDead()) {
+      game.fireworks.remove(i);
+    }
+  }
+
   game.update();
   game.drawUI();
 }
@@ -52,5 +61,4 @@ void keyPressed() {
   if (key == ' ' && game.state == GameState.WAITING) {
     game.nextTurn();
   }
-  
 }

@@ -1,0 +1,25 @@
+class Player {
+  String name;
+  int position = 0;
+  int rest = 0;
+  Point point;
+  int id;
+  PImage[] images;
+
+  Player(String name, int id, PImage[] images) {
+    this.name = name;
+    this.id = id;
+    this.images = images;
+    this.point = new Point();
+  }
+
+  void move(int steps) {
+    position += steps;
+  }
+
+  void drawRelative(int localIndex) {
+    int x = 80 * localIndex + 30;
+    int y = 350 + id * 60;
+    image(images[id], x, y, 50, 50);
+  }
+}

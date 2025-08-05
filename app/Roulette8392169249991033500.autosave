@@ -1,0 +1,32 @@
+class Roulette {
+  int currentValue = 0;
+  int spinCount = 0;
+  int maxSpin = 30;
+  boolean spinning = false;
+
+  void startSpin() {
+    spinCount = 0;
+    spinning = true;
+  }
+
+  void update() {
+    if (spinning) {
+      spinCount++;
+      currentValue = (int)random(1, 7); // 1～6の乱数
+      if (spinCount > maxSpin) {
+        spinning = false;
+      }
+    }
+  }
+
+  boolean isSpinning() {
+    return spinning;
+  }
+
+  void draw() {
+    fill(0);
+    textSize(24);
+    textAlign(CENTER, CENTER);
+    text("Roulette: " + currentValue, width / 2, height - 50);
+  }
+}
