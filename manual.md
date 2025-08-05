@@ -26,21 +26,21 @@
 
 ## 操作方法
 1．Processingでapp.pdeを開いた状態で「▶」を押す．<br>
-![alt text](image-1.png)<br><br>
+![alt text](images/image-1.png)<br><br>
 
 「▶」を押すと，次のような画面が表示される．<br>
 ※マスの色はランダムに表示されます．以下の画面と同じように表示されるとは限りません．<br>
-![alt text](image-2.png)<br><br>
+![alt text](images/image-2.png)<br><br>
 
 2．Player 1 がスペースキーを押してルーレットを回す．<br><br>
 
 スペースキーを押すと，次のようになる．
 ※ルーレットの数はランダムです．以下の画面と同じように表示されるとは限りません．<br>
-![alt text](image-3.png)<br><br>
+![alt text](images/image-3.png)<br><br>
 
 3．Player 1 → Player 2 → Player 3 の順にゲームを進める．<br><br>
 
 4．全員がゴールするまでルーレットを回し続ける．<br><br>
 
 5．「Thanks for playing.」と表示されたらゲーム終了．<br>
-![alt text](image-4.png)
+![alt text](images/image-4.png)
